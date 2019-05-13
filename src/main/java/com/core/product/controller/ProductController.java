@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.core.product.model.FileObject;
+import com.core.product.model.ImageRequest;
 import com.core.product.model.Product;
 import com.core.product.model.ProductRequest;
 import com.core.product.model.Review;
@@ -46,6 +47,11 @@ public class ProductController {
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
 	public Product addProduct(@RequestBody ProductRequest productRequest) {
 		return productService.addProduct(productRequest);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{productId}/images")
+	public Product addImage(@PathVariable Long productId, @RequestBody ImageRequest imageRequest) {
+		return productService.addImageToProduct(productId, imageRequest);
 	}
 
 	@RequestMapping("/products/{productId}/reviews")

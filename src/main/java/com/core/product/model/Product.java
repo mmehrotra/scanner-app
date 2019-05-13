@@ -17,38 +17,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 public class Product {
 
-	@JsonProperty("prductImageUrl")
-	private String productImageUrl = null;
-
-	@JsonProperty("productImagePreSignedUrl")
-	private String productImagePreSignedUrl = null;
 
 	@JsonProperty("productName")
 	private String productName = null;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonProperty("productId")
 	private Long productId = null;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	private List<Review> reviews;
 
-	public String getProductImageUrl() {
-		return productImageUrl;
-	}
-
-	public void setProductImageUrl(String productImageUrl) {
-		this.productImageUrl = productImageUrl;
-	}
-
-	public String getProductImagePreSignedUrl() {
-		return productImagePreSignedUrl;
-	}
-
-	public void setProductImagePreSignedUrl(String productImagePreSignedUrl) {
-		this.productImagePreSignedUrl = productImagePreSignedUrl;
-	}
+	@OneToMany(cascade = { CascadeType.ALL })
+	private List<Image> images;
 
 	public Long getProductId() {
 		return productId;
@@ -72,6 +53,14 @@ public class Product {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 	
 	

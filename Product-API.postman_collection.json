@@ -62,6 +62,21 @@
 		{
 			"name": "Create Product",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mohit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mohit",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -73,7 +88,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"productImageUrl\": \"https://s3.ap-south-1.amazonaws.com/nycemoves/0/images/0_image_1557517274201-1.PNG\",\n\t\"productName\": \"iphonex\"\n\t\n}"
+					"raw": "{\n\t\"productImageUrl\": \"https://s3.ap-south-1.amazonaws.com/nycemoves/0/images/0_image_1557517274201-1.PNG\",\n\t\"productName\": \"iphonex\",\n\t\"productId\": 1\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8081/scanner-app/1.0.0/products",
@@ -86,6 +101,55 @@
 						"scanner-app",
 						"1.0.0",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Image to a Product",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "mohit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mohit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productImageUrl\": \"https://s3.ap-south-1.amazonaws.com/nycemoves/0/images/0_image_1557517274201-1.PNG\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/scanner-app/1.0.0/products/1/images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"scanner-app",
+						"1.0.0",
+						"products",
+						"1",
+						"images"
 					]
 				}
 			},

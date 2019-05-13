@@ -1,13 +1,5 @@
 package com.core.product.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -21,6 +13,9 @@ public class ProductRequest {
 
 	@JsonProperty("productName")
 	private String productName = null;
+	
+	@JsonProperty("productId")
+	private Long productId = null;
 
 	public String getProductImageUrl() {
 		return productImageUrl;
@@ -36,6 +31,14 @@ public class ProductRequest {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
 
 }
